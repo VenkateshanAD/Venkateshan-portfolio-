@@ -97,7 +97,7 @@ section {
     align-items: center;
     padding-top: 80px;
     background: radial-gradient(ellipse at top right, rgba(124, 58, 237, 0.15) 0%, transparent 50%),
-                radial-gradient(ellipse at bottom left, rgba(0, 212, 255, 0.1) 0%, transparent 50%);
+        radial-gradient(ellipse at bottom left, rgba(0, 212, 255, 0.1) 0%, transparent 50%);
 }
 
 .hero-wrapper {
@@ -447,6 +447,109 @@ section {
     resize: vertical;
     min-height: 120px;
 }
+
+.timeline {
+  position: relative;
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 20px 0;
+}
+
+.timeline::before {
+  content: '';
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 3px;
+  height: 100%;
+  background: linear-gradient(180deg, #2563EB, #06B6D4, #8B5CF6);
+  border-radius: 3px;
+}
+
+.timeline-item {
+  position: relative;
+  width: 50%;
+  padding: 20px 40px;
+  opacity: 0;
+  transform: translateX(-30px);
+  transition: all 0.6s;
+}
+
+.timeline-item.show {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+.timeline-item:nth-child(odd) {
+  left: 0;
+}
+
+.timeline-item:nth-child(even) {
+  left: 50%;
+  transform: translateX(30px);
+}
+
+.timeline-item:nth-child(even).show {
+  transform: translateX(0);
+}
+
+.timeline-dot {
+  position: absolute;
+  top: 28px;
+  width: 16px;
+  height: 16px;
+  background: #2563EB;
+  border: 3px solid #fff;
+  border-radius: 50%;
+  box-shadow: 0 0 0 3px #2563EB;
+  z-index: 1;
+}
+
+.timeline-item:nth-child(odd) .timeline-dot {
+  right: -8px;
+}
+
+.timeline-item:nth-child(even) .timeline-dot {
+  left: -8px;
+}
+
+.timeline-date {
+  display: inline-block;
+  padding: 4px 14px;
+  background: linear-gradient(135deg, #2563EB, #06B6D4);
+  color: #fff;
+  border-radius: 20px;
+  font-size: 13px;
+  font-weight: 500;
+  margin-bottom: 10px;
+}
+
+.timeline-content {
+  background: #fff;
+  padding: 25px;
+  border-radius: 16px;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.05);
+  transition: all 0.3s;
+}
+
+.timeline-content:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 8px 30px rgba(0,0,0,0.1);
+}
+
+.timeline-content h3 {
+  font-size: 17px;
+  font-weight: 600;
+  margin-bottom: 6px;
+  color: #0F172A;
+}
+
+.timeline-content p {
+  font-size: 14px;
+  color: #475569;
+  line-height: 1.6;
+}
+
 
 footer {
     background: var(--bg-secondary);
